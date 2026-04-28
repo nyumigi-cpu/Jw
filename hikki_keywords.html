@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>히키녀 키워드</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Malgun Gothic', Arial, sans-serif; background: #181818; color: #ddd; padding: 24px 20px; max-width: 700px; margin: 0 auto; }
+h2 { color: #777; font-size: 11px; font-weight: normal; margin: 24px 0 6px; letter-spacing: 2px; text-transform: uppercase; }
+.row { display: flex; align-items: center; padding: 9px 12px; margin: 2px 0; background: #222; border-radius: 5px; cursor: pointer; user-select: none; transition: background 0.1s; }
+.row:hover { background: #2e2e2e; }
+.row:active { background: #3a3a3a; }
+.label { color: #666; font-size: 12px; width: 110px; flex-shrink: 0; }
+.kw { font-size: 13px; color: #ddd; flex: 1; }
+.tag { font-size: 10px; color: #4c4; margin-left: 10px; opacity: 0; transition: opacity 0.2s; white-space: nowrap; }
+.tag.show { opacity: 1; }
+</style>
+</head>
+<body>
+
+<h2>📋 일상</h2>
+<div class="row" onclick="copy(this, '샤워, 씻는, 목욕')"><span class="label">샤워</span><span class="kw">샤워, 씻는, 목욕</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '벗는, 갈아입는, 속옷')"><span class="label">옷벗는</span><span class="kw">벗는, 갈아입는, 속옷</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '게임, 하는, 컨트롤러')"><span class="label">게임</span><span class="kw">게임, 하는, 컨트롤러</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '자는, 잠든, 누워서')"><span class="label">잠자는</span><span class="kw">자는, 잠든, 누워서</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '공원, 벤치, 앉아있는, 야외')"><span class="label">공원</span><span class="kw">공원, 벤치, 앉아있는, 야외</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '카페, 데이트, 같이')"><span class="label">카페</span><span class="kw">카페, 데이트, 같이</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '식사, 밥, 먹는, 같이')"><span class="label">식사</span><span class="kw">식사, 밥, 먹는, 같이</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '문, 마주침, 놀란, 현관')"><span class="label">마주침</span><span class="kw">문, 마주침, 놀란, 현관</span><span class="tag">복사됨</span></div>
+
+<h2>😊 감정</h2>
+<div class="row" onclick="copy(this, '우울, 가라앉은, 힘든')"><span class="label">우울</span><span class="kw">우울, 가라앉은, 힘든</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '슬픈, 눈물, 우는')"><span class="label">슬픔</span><span class="kw">슬픈, 눈물, 우는</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '기쁜, 웃는, 미소')"><span class="label">기쁨</span><span class="kw">기쁜, 웃는, 미소</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '부끄러운, 수줍은, 빨개진')"><span class="label">부끄러움</span><span class="kw">부끄러운, 수줍은, 빨개진</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '화난, 대노, 분노')"><span class="label">화남</span><span class="kw">화난, 대노, 분노</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '삐진, 볼부풀린, 돌아앉은')"><span class="label">삐짐</span><span class="kw">삐진, 볼부풀린, 돌아앉은</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '힘든, 기운없는, 지친')"><span class="label">힘든</span><span class="kw">힘든, 기운없는, 지친</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '생각하는, 고민, 멍때리는')"><span class="label">생각</span><span class="kw">생각하는, 고민, 멍때리는</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '대화, 말하는, 이야기')"><span class="label">대화</span><span class="kw">대화, 말하는, 이야기</span><span class="tag">복사됨</span></div>
+
+<h2>⭐ 솔로 야한</h2>
+<div class="row" onclick="copy(this, '자위, 혼자서, 만지는')"><span class="label">자위</span><span class="kw">자위, 혼자서, 만지는</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '벌리는, 보여주는')"><span class="label">보지벌림</span><span class="kw">벌리는, 보여주는</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '항문, 벌리는')"><span class="label">항문벌림</span><span class="kw">항문, 벌리는</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '오줌, 분출, 지리는')"><span class="label">방뇨</span><span class="kw">오줌, 분출, 지리는</span><span class="tag">복사됨</span></div>
+
+<h2>👐 비삽입</h2>
+<div class="row" onclick="copy(this, '손가락, 쑤시는, 만지는')"><span class="label">핑거링</span><span class="kw">손가락, 쑤시는, 만지는</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '빨아주는, 혀, 핥는')"><span class="label">커닐링구스</span><span class="kw">빨아주는, 혀, 핥는</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '펠라, 입으로, 빨아')"><span class="label">펠라</span><span class="kw">펠라, 입으로, 빨아</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '파이즈리, 가슴으로')"><span class="label">파이즈리</span><span class="kw">파이즈리, 가슴으로</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '얼굴에싸, 입안, 정액')"><span class="label">얼굴+입안사정</span><span class="kw">얼굴에싸, 입안, 정액</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '핸드잡, 손으로, 잡고')"><span class="label">대딸</span><span class="kw">핸드잡, 손으로, 잡고</span><span class="tag">복사됨</span></div>
+
+<h2>🔞 삽입</h2>
+<div class="row" onclick="copy(this, '정상위, 삽입, 위에서')"><span class="label">정상위A</span><span class="kw">정상위, 삽입, 위에서</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '정상위, 삽입, 옆에서')"><span class="label">정상위B</span><span class="kw">정상위, 삽입, 옆에서</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '후배위, 뒤에서, 엎드려')"><span class="label">후배위</span><span class="kw">후배위, 뒤에서, 엎드려</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '기승위, 올라타, 위에서')"><span class="label">기승위</span><span class="kw">기승위, 올라타, 위에서</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '역기승위, 뒤돌아, 올라타')"><span class="label">역기승위</span><span class="kw">역기승위, 뒤돌아, 올라타</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '애널, 뒤로, 항문')"><span class="label">애널</span><span class="kw">애널, 뒤로, 항문</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '소파, 앉아서, 삽입')"><span class="label">소파섹스</span><span class="kw">소파, 앉아서, 삽입</span><span class="tag">복사됨</span></div>
+
+<h2>💦 마무리</h2>
+<div class="row" onclick="copy(this, '중출, 안에싸, 사정')"><span class="label">중출</span><span class="kw">중출, 안에싸, 사정</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '온몸, 정액범벅, 탈진')"><span class="label">온몸사정</span><span class="kw">온몸, 정액범벅, 탈진</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '아헤가오, 절정, 눈풀린, 혀내밈')"><span class="label">아헤가오</span><span class="kw">아헤가오, 절정, 눈풀린, 혀내밈</span><span class="tag">복사됨</span></div>
+
+<h2>💕 스토리</h2>
+<div class="row" onclick="copy(this, '임신, 배, 쓰다듬는')"><span class="label">임신</span><span class="kw">임신, 배, 쓰다듬는</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '임신, 섹스, 스푸닝')"><span class="label">임신섹스</span><span class="kw">임신, 섹스, 스푸닝</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '결혼, 웨딩, 드레스')"><span class="label">결혼</span><span class="kw">결혼, 웨딩, 드레스</span><span class="tag">복사됨</span></div>
+
+<script>
+function copy(el, text) {
+  navigator.clipboard.writeText(text).catch(() => {
+    const ta = document.createElement('textarea');
+    ta.value = text; document.body.appendChild(ta);
+    ta.select(); document.execCommand('copy');
+    document.body.removeChild(ta);
+  });
+  const tag = el.querySelector('.tag');
+  tag.classList.add('show');
+  setTimeout(() => tag.classList.remove('show'), 1200);
+}
+</script>
+</body>
+</html>

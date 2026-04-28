@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>고백 언제할래 키워드</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Malgun Gothic', Arial, sans-serif; background: #181818; color: #ddd; padding: 24px 20px; max-width: 700px; margin: 0 auto; }
+h2 { color: #777; font-size: 11px; font-weight: normal; margin: 24px 0 6px; letter-spacing: 2px; text-transform: uppercase; }
+.row { display: flex; align-items: center; padding: 9px 12px; margin: 2px 0; background: #222; border-radius: 5px; cursor: pointer; user-select: none; transition: background 0.1s; }
+.row:hover { background: #2e2e2e; }
+.row:active { background: #3a3a3a; }
+.label { color: #666; font-size: 12px; width: 110px; flex-shrink: 0; }
+.kw { font-size: 13px; color: #ddd; flex: 1; }
+.tag { font-size: 10px; color: #4c4; margin-left: 10px; opacity: 0; transition: opacity 0.2s; white-space: nowrap; }
+.tag.show { opacity: 1; }
+</style>
+</head>
+<body>
+
+<h2>😊 감정</h2>
+<div class="row" onclick="copy(this, '환하게 웃는, 웃음이 번지, 활짝, 반짝이는, 밝아지는, 미소가 새어나')"><span class="label">기쁨</span><span class="kw">환하게 웃는, 웃음이 번지, 활짝, 반짝이는, 밝아지는, 미소가 새어나</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '설레는, 두근, 조마조마, 기대되는, 떨리는, 심장이')"><span class="label">설렘</span><span class="kw">설레는, 두근, 조마조마, 기대되는, 떨리는, 심장이</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '좋아하는, 가슴이 뛰어, 눈을 떼지 못하, 두근두근, 보고 싶어지는, 심장이 쿵')"><span class="label">연애 설렘</span><span class="kw">좋아하는, 가슴이 뛰어, 눈을 떼지 못하, 두근두근, 보고 싶어지는, 심장이 쿵</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '부끄러워, 얼굴이 달아, 빨개진, 고개를 돌려, 수줍게, 어쩔 줄 몰라')"><span class="label">부끄러움</span><span class="kw">부끄러워, 얼굴이 달아, 빨개진, 고개를 돌려, 수줍게, 어쩔 줄 몰라</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '달아오른, 숨이 가빠, 가쁜 숨, 홍조가, 눈빛이 흔들려, 입술을 깨물')"><span class="label">성적 흥분</span><span class="kw">달아오른, 숨이 가빠, 가쁜 숨, 홍조가, 눈빛이 흔들려, 입술을 깨물</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '눈물이, 울컥, 눈가가, 목이 메, 떨리는 입술, 글썽이')"><span class="label">슬픔</span><span class="kw">눈물이, 울컥, 눈가가, 목이 메, 떨리는 입술, 글썽이</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '가라앉은, 텅 빈, 무기력, 멍하니, 아무것도 하기 싫, 공허한')"><span class="label">우울</span><span class="kw">가라앉은, 텅 빈, 무기력, 멍하니, 아무것도 하기 싫, 공허한</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '졸린, 눈꺼풀이, 꾸벅, 나른한, 스르르, 하품')"><span class="label">졸림</span><span class="kw">졸린, 눈꺼풀이, 꾸벅, 나른한, 스르르, 하품</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '째려보, 이를 악물, 노려보, 짜증이, 분노가, 불끈')"><span class="label">화남</span><span class="kw">째려보, 이를 악물, 노려보, 짜증이, 분노가, 불끈</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '삐친, 볼이 부풀, 토라진, 흥, 외면하며, 뾰로통한')"><span class="label">삐짐</span><span class="kw">삐친, 볼이 부풀, 토라진, 흥, 외면하며, 뾰로통한</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '깜짝, 눈이 커진, 헉, 화들짝, 멈칫, 숨이 멎을')"><span class="label">놀람</span><span class="kw">깜짝, 눈이 커진, 헉, 화들짝, 멈칫, 숨이 멎을</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '멍하게, 상념에, 어딘가를 바라보며, 고민하는, 아무 생각도, 생각에 잠긴')"><span class="label">생각/멍</span><span class="kw">멍하게, 상념에, 어딘가를 바라보며, 고민하는, 아무 생각도, 생각에 잠긴</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '지쳐, 축 처진, 기운 없는, 무거운, 한숨을, 힘이 빠진')"><span class="label">힘든/지침</span><span class="kw">지쳐, 축 처진, 기운 없는, 무거운, 한숨을, 힘이 빠진</span><span class="tag">복사됨</span></div>
+<div class="row" onclick="copy(this, '흐느끼며, 눈물이 흘러, 볼을 타고, 소리 없이, 눈물을 닦, 울음을')"><span class="label">울음</span><span class="kw">흐느끼며, 눈물이 흘러, 볼을 타고, 소리 없이, 눈물을 닦, 울음을</span><span class="tag">복사됨</span></div>
+
+<script>
+function copy(el, text) {
+  navigator.clipboard.writeText(text).catch(() => {
+    const ta = document.createElement('textarea');
+    ta.value = text; document.body.appendChild(ta);
+    ta.select(); document.execCommand('copy');
+    document.body.removeChild(ta);
+  });
+  const tag = el.querySelector('.tag');
+  tag.classList.add('show');
+  setTimeout(() => tag.classList.remove('show'), 1200);
+}
+</script>
+</body>
+</html>

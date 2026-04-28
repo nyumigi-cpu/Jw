@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>지하철녀 — 키워드 복사</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0f0f14;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', 'Noto Sans KR', sans-serif;
+    padding: 32px 20px;
+    min-height: 100vh;
+  }
+  h1 {
+    text-align: center;
+    font-size: 20px;
+    color: #c084fc;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .subtitle {
+    text-align: center;
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 32px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 12px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .card {
+    background: #1a1a24;
+    border: 1px solid #2a2a38;
+    border-radius: 10px;
+    padding: 14px 16px;
+    transition: border-color 0.2s;
+  }
+  .card:hover { border-color: #7c3aed; }
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .scene-num {
+    font-size: 10px;
+    color: #6b21a8;
+    font-weight: bold;
+    background: #2e1065;
+    padding: 2px 7px;
+    border-radius: 4px;
+  }
+  .scene-title {
+    font-size: 13px;
+    font-weight: bold;
+    color: #d8b4fe;
+    flex: 1;
+    margin-left: 8px;
+  }
+  .copy-btn {
+    background: #3b0764;
+    color: #c084fc;
+    border: 1px solid #6b21a8;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .copy-btn:hover { background: #6b21a8; color: #fff; }
+  .copy-btn.copied { background: #166534; color: #86efac; border-color: #15803d; }
+  .keywords {
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.8;
+    background: #0f0f18;
+    border-radius: 6px;
+    padding: 8px 10px;
+    word-break: keep-all;
+  }
+  .tag {
+    display: inline-block;
+    background: #1e1b4b;
+    color: #a5b4fc;
+    border-radius: 4px;
+    padding: 1px 6px;
+    margin: 2px 2px;
+    font-size: 11px;
+  }
+  .section-label {
+    font-size: 11px;
+    color: #4b5563;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 28px 0 10px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 4px;
+    border-left: 3px solid #6b21a8;
+    padding-left: 8px;
+  }
+</style>
+</head>
+<body>
+
+<h1>지하철녀 키워드</h1>
+<p class="subtitle">클릭하면 복사됩니다</p>
+
+<p class="section-label">치한씬</p>
+<div class="grid" id="grid-1"></div>
+
+<p class="section-label">감정씬</p>
+<div class="grid" id="grid-2"></div>
+
+<p class="section-label">성인씬</p>
+<div class="grid" id="grid-3"></div>
+
+<script>
+const scenes = {
+  "grid-1": [
+    { num: "01", title: "지하철 뒤돌아보기",    kw: "지하철 뒤돌아보기, 의심눈빛, 부끄러움, 상체클로즈업, 고개돌림" },
+    { num: "02", title: "지하철 치한 엉덩이",   kw: "지하철 치한 엉덩이, 엉덩이터치, 흰레이스팬티, 치마들림, 뒤돌아봄" },
+    { num: "03", title: "지하철 치한 정면",     kw: "지하철 치한 정면, 팬티위터치, 치마들림, 흰레이스팬티, 눈물글썽" },
+    { num: "04", title: "지하철 강제 펠라",     kw: "지하철 강제 펠라, 머리채잡힘, 무릎꿇기, 울먹표정, 클로즈업" },
+  ],
+  "grid-2": [
+    { num: "05", title: "웃는 얼굴",           kw: "웃는 얼굴, 밝은미소, 아래서올려다봄, 클로즈업" },
+    { num: "06", title: "화난 얼굴",           kw: "화난 얼굴, 찡그림, 앞으로기울임, 정면클로즈업" },
+    { num: "07", title: "부끄러운 얼굴",        kw: "부끄러운 얼굴, 시선회피, 더치앵글, 옆에서클로즈업" },
+    { num: "08", title: "울먹이는 얼굴",        kw: "울먹이는 얼굴, 눈물, 위에서내려다봄, 올려다보는시선" },
+    { num: "09", title: "졸린 얼굴",           kw: "졸린 얼굴, 반감은눈, 하품, 고개기울임, 옆에서" },
+    { num: "10", title: "놀란 얼굴",           kw: "놀란 얼굴, 눈크게뜸, 로우앵글, 아래에서올려다봄" },
+  ],
+  "grid-3": [
+    { num: "11", title: "지하철 강제탈의",      kw: "지하철 강제탈의, 옷벗기기, 상체클로즈업, 강제표정" },
+    { num: "12", title: "전라 부끄러움",        kw: "전라 부끄러움, 가슴가리기, 지하철, 강제표정" },
+    { num: "13", title: "가슴만지기",          kw: "가슴만지기, 전라, 지하철, 강제표정, 가슴그랩" },
+    { num: "14", title: "보지만지기",          kw: "보지만지기, 전라, 지하철, 핑거링, 강제표정" },
+    { num: "15", title: "후배위",             kw: "후배위, 전라, 지하철, 고개뒤돌림, 강제표정" },
+    { num: "16", title: "의자 정상위 옆모습",   kw: "의자 정상위 옆모습, 전라, 지하철시트, 눕혀서, 강제표정" },
+    { num: "17", title: "정상위",             kw: "정상위, 전라, 지하철, 위에서내려다봄, 강제표정" },
+    { num: "18", title: "벽잡고 후배위",        kw: "벽잡고 후배위, 전라, 지하철벽, 스탠딩섹스, 강제표정" },
+    { num: "19", title: "파이즈리",            kw: "파이즈리, 전라, 지하철, 올려다봄, 강제표정" },
+    { num: "20", title: "얼굴입싸",            kw: "얼굴입싸, 전라, 얼굴정액, 지하철, 굴욕표정" },
+    { num: "21", title: "탈진실신 정액범벅",    kw: "탈진실신 정액범벅, 전라, 전신정액, 실신, 지하철바닥" },
+  ]
+};
+
+Object.entries(scenes).forEach(([gridId, list]) => {
+  const grid = document.getElementById(gridId);
+  list.forEach(({ num, title, kw }) => {
+    const tags = kw.split(', ').map(t => `<span class="tag">${t}</span>`).join('');
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <div class="card-header">
+        <span class="scene-num">${num}</span>
+        <span class="scene-title">${title}</span>
+        <button class="copy-btn" data-kw="${kw}">복사</button>
+      </div>
+      <div class="keywords">${tags}</div>
+    `;
+    grid.appendChild(card);
+  });
+});
+
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    navigator.clipboard.writeText(btn.dataset.kw).then(() => {
+      btn.textContent = '✓ 복사됨';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '복사';
+        btn.classList.remove('copied');
+      }, 1500);
+    });
+  });
+});
+</script>
+</body>
+</html>

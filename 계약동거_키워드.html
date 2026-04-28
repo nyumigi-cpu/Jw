@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>계약동거 — 키워드 복사</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0f0f14;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', 'Noto Sans KR', sans-serif;
+    padding: 32px 20px;
+    min-height: 100vh;
+  }
+  h1 {
+    text-align: center;
+    font-size: 20px;
+    color: #f9a8d4;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .subtitle {
+    text-align: center;
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 32px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 12px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .card {
+    background: #1a1a24;
+    border: 1px solid #2a2a38;
+    border-radius: 10px;
+    padding: 14px 16px;
+    transition: border-color 0.2s;
+  }
+  .card:hover { border-color: #ec4899; }
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .scene-num {
+    font-size: 10px;
+    color: #9d174d;
+    font-weight: bold;
+    background: #500724;
+    padding: 2px 7px;
+    border-radius: 4px;
+  }
+  .scene-title {
+    font-size: 13px;
+    font-weight: bold;
+    color: #fbcfe8;
+    flex: 1;
+    margin-left: 8px;
+  }
+  .copy-btn {
+    background: #500724;
+    color: #f9a8d4;
+    border: 1px solid #9d174d;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .copy-btn:hover { background: #9d174d; color: #fff; }
+  .copy-btn.copied { background: #166534; color: #86efac; border-color: #15803d; }
+  .keywords {
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.8;
+    background: #0f0f18;
+    border-radius: 6px;
+    padding: 8px 10px;
+    word-break: keep-all;
+  }
+  .tag {
+    display: inline-block;
+    background: #4a1942;
+    color: #f0abfc;
+    border-radius: 4px;
+    padding: 1px 6px;
+    margin: 2px 2px;
+    font-size: 11px;
+  }
+  .section-label {
+    font-size: 11px;
+    color: #4b5563;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 28px auto 10px;
+    max-width: 1100px;
+    padding-left: 8px;
+    border-left: 3px solid #ec4899;
+  }
+</style>
+</head>
+<body>
+
+<h1>계약동거 키워드</h1>
+<p class="subtitle">클릭하면 복사됩니다</p>
+
+<p class="section-label">일상씬</p>
+<div class="grid" id="grid-1"></div>
+
+<p class="section-label">야한씬</p>
+<div class="grid" id="grid-2"></div>
+
+<p class="section-label">감정씬</p>
+<div class="grid" id="grid-3"></div>
+
+<script>
+const scenes = {
+  "grid-1": [
+    { num: "01", title: "소파에 다소곳",    kw: "소파에 다소곳. 소파앉기, 손모음, 긴장, 다소곳" },
+    { num: "02", title: "식사",             kw: "밥먹기. 식사중, 수저들기, 고개내림, 식탁" },
+    { num: "03", title: "잠자는",           kw: "자는모습. 침대수면, 눈감음, 옆모습, 평온한표정" },
+    { num: "04", title: "청소하는",         kw: "청소중. 빗자루잡기, 쓸기, 집중표정, 앞으로기울기" },
+    { num: "05", title: "빨래하는",         kw: "빨래접기. 옷개기, 세탁물잡기, 서있음, 온화한표정" },
+    { num: "06", title: "요리하는",         kw: "요리중. 국자잡기, 앞치마, 가스레인지앞, 집중표정" },
+    { num: "07", title: "샤워하는",         kw: "샤워중. 젖은머리, 머리내림, 가슴노출, 당황표정" },
+    { num: "08", title: "소변 변기",        kw: "화장실소변. 변기앉기, 팬티내림, 부끄러운표정, 시선회피" },
+    { num: "09", title: "옷 벗기",          kw: "옷벗기. 캐미솔들어올리기, 배노출, 가슴노출, 부끄러운표정" },
+  ],
+  "grid-2": [
+    { num: "10", title: "전라 몸가리기",    kw: "전라몸가리기. 전나체, 팔로가리기, 부끄러운표정, 울먹임" },
+    { num: "11", title: "펠라치오",         kw: "펠라치오. 무릎꿇기, 올려다봄, 눈물글썽, 부끄러운표정" },
+    { num: "12", title: "파이즈리",         kw: "파이즈리. 가슴사이, 무릎꿇기, 올려다봄, 부끄러운표정" },
+    { num: "13", title: "얼굴·입안 사정",   kw: "얼굴입사정. 얼굴정액, 입안사정, 입벌림, 눈물글썽, 부끄러운표정" },
+    { num: "14", title: "보지클로즈업 벌림",kw: "보지클로즈업벌림. 보지클로즈업, 손으로벌림, 핑크보지, 극단클로즈업" },
+    { num: "15", title: "항문 벌림",        kw: "항문벌림. 항문클로즈업, 손으로벌림, 뒤에서, 극단클로즈업" },
+    { num: "16", title: "보지 자위",        kw: "보지자위. 손가락삽입, 자위중, 보지클로즈업, 젖음" },
+    { num: "17", title: "남주 보지쑤심",    kw: "남주보지쑤심. 타인손가락삽입, 보지클로즈업, 아파하는표정, 손가만히" },
+    { num: "18", title: "남주 항문 손가락", kw: "항문손가락. 타인손가락항문, 항문삽입, 항문클로즈업, 뒤에서" },
+    { num: "19", title: "정상위",           kw: "정상위. 남주올라탐, 누워서다리벌림, 삽입중, 아파하는표정" },
+    { num: "20", title: "기승위",           kw: "기승위. 올라탐, 라이딩, 삽입중, 부끄러운표정" },
+    { num: "21", title: "후배위",           kw: "후배위. 남주뒤에서, 네발자세, 뒤돌아봄, 아파하는표정" },
+    { num: "22", title: "탈진 정액범벅",    kw: "탈진정액범벅. 전신정액, 탈진누움, 공허한눈빛, 위에서내려다봄" },
+    { num: "23", title: "임신",             kw: "임신. 임신배, 배에손올림, 온화한표정, 임산부" },
+    { num: "24", title: "임신섹스",         kw: "임신섹스. 임신중섹스, 임신배, 정상위, 삽입중" },
+  ],
+  "grid-3": [
+    { num: "25", title: "웃는 얼굴",        kw: "웃는얼굴. 부드러운미소, 눈휘어짐, 얼굴클로즈업" },
+    { num: "26", title: "화난 얼굴",        kw: "화난얼굴. 찡그림, 노려봄, 불만표정, 얼굴클로즈업" },
+    { num: "27", title: "우는 얼굴",        kw: "우는얼굴. 눈물흘림, 입술떨림, 슬픈표정, 얼굴클로즈업" },
+    { num: "28", title: "겁먹은 얼굴",      kw: "겁먹은얼굴. 눈크게뜸, 떨림, 뒤로움츠림, 겁먹은표정" },
+    { num: "29", title: "놀란 얼굴",        kw: "놀란얼굴. 눈크게뜸, 입벌림, 깜짝놀람, 얼굴클로즈업" },
+    { num: "30", title: "우울한 얼굴",      kw: "우울한얼굴. 고개숙임, 공허한눈빛, 우울한표정, 얼굴클로즈업" },
+  ]
+};
+
+Object.entries(scenes).forEach(([gridId, list]) => {
+  const grid = document.getElementById(gridId);
+  list.forEach(({ num, title, kw }) => {
+    const parts = kw.split('. ');
+    const tagStr = parts.length > 1 ? parts[1] : kw;
+    const tags = tagStr.split(', ').map(t => `<span class="tag">${t}</span>`).join('');
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <div class="card-header">
+        <span class="scene-num">${num}</span>
+        <span class="scene-title">${title}</span>
+        <button class="copy-btn" data-kw="${kw}">복사</button>
+      </div>
+      <div class="keywords">${tags}</div>
+    `;
+    grid.appendChild(card);
+  });
+});
+
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    navigator.clipboard.writeText(btn.dataset.kw).then(() => {
+      btn.textContent = '✓ 복사됨';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '복사';
+        btn.classList.remove('copied');
+      }, 1500);
+    });
+  });
+});
+</script>
+</body>
+</html>
